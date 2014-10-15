@@ -10,8 +10,6 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
-FMS.sublime-project
-FMS.sublime-workspace
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
@@ -31,3 +29,19 @@ config/secrets.yml
 /vendor/assets/bower_components
 *.bowerrc
 bower.json
+
+
+# cache files for sublime text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# workspace files are user-specific
+*.sublime-workspace
+
+# project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using SublimeText
+# *.sublime-project
+
+# sftp configuration file
+sftp-config.json

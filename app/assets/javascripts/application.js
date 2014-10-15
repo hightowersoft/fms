@@ -18,14 +18,10 @@
 //= require_tree .
 
 
-var wysi;
-wysi = function(){
+$(document).on('page:load ready', function(){
 
   $('.wysihtml5').each(function(i, elem) {
     $(elem).wysihtml5();
   });
 
-}
-
-$(document).ready(wysi);
-$(document).on('page:load', wysi);
+})

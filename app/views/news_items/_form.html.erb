@@ -1,0 +1,28 @@
+<%= form_for(@news_item) do |f| %>
+  <% if @news_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@news_item.errors.count, "error") %> prohibited this news_item from being saved:</h2>
+
+      <ul>
+      <% @news_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <legend>Add news</legend>
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title, size: 40, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :body %><br>
+      <%= f.text_area :body, cols: 60, rows: 10, class: "form-control wysihtml5" %>
+    </div>
+    <div class="actions">
+      <%= f.submit class: "btn btn-success btn-sm" %>
+    </div>
+  </fieldset>
+<% end %>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+      <meta charset="utf-8">
+      <title>FMS</title>
+      
+      <!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+      <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+		  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+		  <%= csrf_meta_tags %>
+  </head>
+    
+  <body>
+  	<div class="navbar navbar-fixed-top navbar-inverse">
+  		<div class="container">
+			  <div class="navbar-header">
+			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>
+			      <span class="icon-bar"></span>
+			    </button>
+			    <a class="navbar-brand" href="<%= root_url %>">FMS</a>
+			  </div>
+			  <div class="navbar-collapse collapse navbar-responsive-collapse">
+			    <ul class="nav navbar-nav">
+			      <li class="active"><a href="<%= root_url %>">Home</a></li>
+			      <li class="dropdown">
+			        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stats <b class="caret"></b></a>
+			        <ul class="dropdown-menu">
+			          <li><a href="#">Fixtures &amp; Results</a></li>
+			          <li><a href="#">Squad &amp; Stats</a></li>
+			          <li><a href="#">League Table</a></li>
+			        </ul>
+			      </li>
+			      <li class="dropdown">
+			        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Club Info <b class="caret"></b></a>
+			        <ul class="dropdown-menu">
+			          <li><a href="#">About Us</a></li>
+			          <li><a href="#">Find Us</a></li>
+			          <li><a href="#">Links</a></li>
+			          <li><a href="#">Contact Us</a></li>
+			        </ul>
+			      </li>
+			      <li><a href="#">Forum</a></li>
+			      <li><a href="#">Gallery</a></li>
+			    </ul>
+			    <form class="navbar-form navbar-right">
+			      <input type="text" class="form-control col-lg-8" placeholder="Search">
+			    </form>
+			  </div>
+			</div>
+		</div>
+  
+		<!-- HEADER 
+		=================================-->
+		<div class="jumbotron text-center">
+	    <div class="container">
+	      <div class="row">
+	        <div class="col-md-12">
+	          <h1>Football Management System</h1>
+	          <p>Welcome to the Open Source Ruby on Rails project built around a standard Bootstrap theme. Thank you for your interest. Please 
+	          feel free to pull the project from GitHub and help out.</p>        
+	        </div>
+	      </div>
+	    </div> 
+		</div>
+		<!-- /header container-->
+
+		<!-- CONTENT
+		=================================-->
+		<div class="container">
+			
+			<% if notice %>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="alert alert-dismissable alert-success">
+					  <button type="button" class="close" data-dismiss="alert">×</button>
+					  <%= notice %>
+					</div>
+				</div>
+			</div>
+			<% end %>
+
+	    <div class="row">
+        <div class="col-md-8">
+        	<div class="panel panel-info">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">News</h3>
+					  </div>
+					  <div class="panel-body">
+					    <%= yield %>
+					  </div>
+					</div>
+
+					<!--
+					TO ADD PAGINATION IN FUTURE
+					<div class="center">
+				    <ul class="pagination">
+						  <li class="disabled"><a href="#">«</a></li>
+						  <li class="active"><a href="#">1</a></li>
+						  <li><a href="#">2</a></li>
+						  <li><a href="#">3</a></li>
+						  <li><a href="#">4</a></li>
+						  <li><a href="#">5</a></li>
+						  <li><a href="#">»</a></li>
+						</ul>
+					</div>
+					-->
+
+        </div>
+
+        <div class="col-md-4">
+        	<div class="panel panel-info">
+					  <div class="panel-heading">
+					    <h3 class="panel-title">Panel primary</h3>
+					  </div>
+					  <div class="panel-body">
+					    Side bar
+					  </div>
+					</div>
+        </div>
+	    </div>
+
+	    <hr />
+	    <div id="footer">Copyright &copy; <%= Time.now.year %> <%= link_to "Hightowersoft", "http://www.hightowersoft.co.uk" %> | Released under the <%= link_to "MIT License", "http://opensource.org/licenses/MIT" %></div>
+		</div>
+		<!-- /CONTENT ============-->        
+	</body>
+</html>

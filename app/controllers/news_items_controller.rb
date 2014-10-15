@@ -4,7 +4,7 @@ class NewsItemsController < ApplicationController
   # GET /news_items
   # GET /news_items.json
   def index
-    @news_items = NewsItem.order(:id).reverse   # Latest news first
+    @news_items = NewsItem.order(:updated_at).reverse   # Latest news first
   end
 
   # GET /news_items/1

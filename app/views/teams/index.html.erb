@@ -1,12 +1,10 @@
-<h1>Listing teams</h1>
+<div class="center"><%= link_to 'Add Team', new_team_path, class: "btn btn-primary btn-sm" %></div><br />
 
-<table>
+<table class="table table-striped table-hover">
   <thead>
-    <tr>
+    <tr class="warning">
       <th>Short name</th>
       <th>Long name</th>
-      <th>Is main</th>
-      <th>In league</th>
       <th></th>
       <th></th>
       <th></th>
@@ -15,19 +13,17 @@
 
   <tbody>
     <% @teams.each do |team| %>
-      <tr>
+      <tr class="<%= cycle('info', 'success') -%>">
         <td><%= team.short_name %></td>
         <td><%= team.long_name %></td>
-        <td><%= team.is_main %></td>
-        <td><%= team.in_league %></td>
-        <td><%= link_to 'Show', team %></td>
-        <td><%= link_to 'Edit', edit_team_path(team) %></td>
-        <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= "<span class='label label-success'>Main Team</span>".html_safe if team.is_main %></td>
+        <td><%= "<span class='label label-info'>In League</span>".html_safe if team.in_league %></td>
+        <td style="text-align: right;"><%= link_to 'Show', team, class: "btn btn-success btn-xs" %> 
+          <%= link_to 'Edit', edit_team_path(team), class: "btn btn-warning btn-xs" %> 
+          <%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Team', new_team_path %>

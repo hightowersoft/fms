@@ -1,18 +1,21 @@
 <%= form_for(@news_item) do |f| %>
   <% if @news_item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@news_item.errors.count, "error") %> prohibited this news_item from being saved:</h2>
-
-      <ul>
-      <% @news_item.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@news_item.errors.count, "error") %> prohibited this news_item from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @news_item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
   <fieldset>
-    <legend>Add news</legend>
+    <legend>Add/Edit News</legend>
     <div class="field">
       <%= f.label :title %><br>
       <%= f.text_field :title, size: 40, class: "form-control" %>

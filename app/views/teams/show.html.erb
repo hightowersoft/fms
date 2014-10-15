@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Short name:</strong>
   <%= @team.short_name %>
@@ -12,13 +10,15 @@
 
 <p>
   <strong>Is main:</strong>
-  <%= @team.is_main %>
+  <%= "<span class='label label-success'>True</span>".html_safe if @team.is_main %>
+  <%= "<span class='label label-danger'>False</span>".html_safe unless @team.is_main %>
 </p>
 
 <p>
   <strong>In league:</strong>
-  <%= @team.in_league %>
+  <%= "<span class='label label-success'>True</span>".html_safe if @team.in_league %>
+  <%= "<span class='label label-danger'>False</span>".html_safe unless @team.in_league %>
 </p>
 
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+<%= link_to 'Edit', edit_team_path(@team), class: "btn btn-warning btn-xs" %> | 
+<%= link_to 'Back', teams_path, class: "btn btn-primary btn-xs" %>

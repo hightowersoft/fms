@@ -1,0 +1,41 @@
+<h1>Listing fixtures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Home team</th>
+      <th>Away team</th>
+      <th>Competition</th>
+      <th>Date</th>
+      <th>Played</th>
+      <th>Home score</th>
+      <th>Away score</th>
+      <th>Report</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fixtures.each do |fixture| %>
+      <tr>
+        <td><%= fixture.home_team %></td>
+        <td><%= fixture.away_team %></td>
+        <td><%= fixture.competition %></td>
+        <td><%= fixture.date %></td>
+        <td><%= fixture.played %></td>
+        <td><%= fixture.home_score %></td>
+        <td><%= fixture.away_score %></td>
+        <td><%= fixture.report %></td>
+        <td><%= link_to 'Show', fixture %></td>
+        <td><%= link_to 'Edit', edit_fixture_path(fixture) %></td>
+        <td><%= link_to 'Destroy', fixture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fixture', new_fixture_path %>

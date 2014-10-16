@@ -6,6 +6,11 @@
       <th>Firstname</th>
       <th>Surname</th>
       <th>Position</th>
+      <th>Played (Sub)</th>
+      <th>MOM</th>
+      <th>Stars (Total Points)</th>
+      <th>Goals</th>
+      <th>Cards</th>
       <th></th>
     </tr>
   </thead>
@@ -16,6 +21,11 @@
         <td><%= player.firstname %></td>
         <td><%= player.surname %></td>
         <td><%= player.position %></td>
+        <td><%= player.total_games %></td>
+        <td><%= player.total_mom %></td>
+        <td><%= player.total_stars %></td>
+        <td><%= player.total_goals %></td>
+        <td><%= player.total_yellow_cards %>/<%= player.total_red_cards %></td>
         <td style="text-align: right;"><%= link_to 'Show', player, class: "btn btn-success btn-xs" %>
           <%= link_to 'Edit', edit_player_path(player), class: "btn btn-warning btn-xs" %>
           <%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>

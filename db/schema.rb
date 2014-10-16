@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141016091532) do
+ActiveRecord::Schema.define(version: 20141016104145) do
+
+  create_table "fixtures", force: true do |t|
+    t.integer  "home_team"
+    t.integer  "away_team"
+    t.integer  "competition"
+    t.date     "date"
+    t.boolean  "played"
+    t.integer  "home_score"
+    t.integer  "away_score"
+    t.text     "report"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "news_items", force: true do |t|
     t.string   "title"
@@ -25,6 +38,19 @@ ActiveRecord::Schema.define(version: 20141016091532) do
     t.string   "surname",    limit: 30
     t.string   "position"
     t.text     "bio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "statistics", force: true do |t|
+    t.integer  "fixture_id"
+    t.integer  "player_id"
+    t.boolean  "mom_manager"
+    t.boolean  "mom_opposition"
+    t.integer  "goals"
+    t.integer  "stars"
+    t.boolean  "yellow_card"
+    t.boolean  "red_card"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

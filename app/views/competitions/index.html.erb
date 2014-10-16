@@ -1,11 +1,9 @@
-<h1>Listing competitions</h1>
+<div class="center"><%= link_to 'New Competition', new_competition_path, class: "btn btn-primary btn-sm" %></div><br />
 
-<table>
+<table class="table table-striped table-hover">
   <thead>
-    <tr>
+    <tr class="warning">
       <th>Name</th>
-      <th>Is league</th>
-      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -13,17 +11,13 @@
 
   <tbody>
     <% @competitions.each do |competition| %>
-      <tr>
+      <tr class="<%= cycle('info', 'success') %>">
         <td><%= competition.name %></td>
-        <td><%= competition.is_league %></td>
-        <td><%= link_to 'Show', competition %></td>
-        <td><%= link_to 'Edit', edit_competition_path(competition) %></td>
-        <td><%= link_to 'Destroy', competition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= "<span class='label label-success'>League</span>".html_safe if competition.is_league %><%= "<span class='label label-danger'>Cup/Other</span>".html_safe unless competition.is_league %></td>
+        <td style="text-align: right;"><%= link_to 'Show', competition, class: "btn btn-success btn-xs" %>
+          <%= link_to 'Edit', edit_competition_path(competition), class: "btn btn-warning btn-xs" %>
+        <%= link_to 'Destroy', competition, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Competition', new_competition_path %>

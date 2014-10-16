@@ -19,7 +19,7 @@
         <td><%= fixture.home.short_name %></td>
         <td class="center"><%= fixture.home_score.to_s + " v " + fixture.away_score.to_s if fixture.played %></td>
         <td style="text-align: right;"><%= fixture.away.short_name %></td>
-        <td><%= fixture.competition %></td>
+        <td><%= fixture.competition.name %></td>
         <td style="text-align: right;"><%= link_to 'Report', fixture, class: "btn btn-success btn-xs" %>
           <%= link_to 'Edit', edit_fixture_path(fixture), class: "btn btn-warning btn-xs" %>
           <%= link_to 'Destroy', fixture, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>

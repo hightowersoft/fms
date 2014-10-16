@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :home_team %><br>
-    <%= f.number_field :home_team %>
+    <%= f.collection_select :home_team, Team.all, :id, :long_name %>
   </div>
   <div class="field">
     <%= f.label :away_team %><br>
-    <%= f.number_field :away_team %>
+    <%= f.collection_select :away_team, Team.all, :id, :long_name %>
   </div>
   <div class="field">
     <%= f.label :competition %><br>
@@ -41,7 +41,7 @@
   </div>
   <div class="field">
     <%= f.label :report %><br>
-    <%= f.number_field :report %>
+    <%= f.text_area :report %>
   </div>
   <div class="actions">
     <%= f.submit %>

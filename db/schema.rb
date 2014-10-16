@@ -11,11 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141015133914) do
+ActiveRecord::Schema.define(version: 20141016091532) do
 
   create_table "news_items", force: true do |t|
     t.string   "title"
     t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "players", force: true do |t|
+    t.string   "firstname",  limit: 30
+    t.string   "surname",    limit: 30
+    t.string   "position"
+    t.text     "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -26,7 +26,7 @@
     </div>
     <div class="field">
       <%= f.label :position %><br>
-      <%= f.text_field :position %>
+      <%= f.select :position, Player::POSITIONS, prompt: 'Select a position' %>
     </div>
     <div class="field">
       <%= f.label :bio %><br>

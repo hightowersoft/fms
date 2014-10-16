@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Firstname:</strong>
   <%= @player.firstname %>
@@ -20,5 +18,5 @@
   <%= @player.bio %>
 </p>
 
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
+<%= link_to 'Edit', edit_player_path(@player), class: "btn btn-warning btn-xs" %> |
+<%= link_to 'Back', players_path, class: "btn btn-primary btn-xs" %>

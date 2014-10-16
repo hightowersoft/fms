@@ -1,5 +1,5 @@
 <p>
-  <strong>Firstname:</strong>
+  <strong>First name:</strong>
   <%= @player.firstname %>
 </p>
 
@@ -16,6 +16,36 @@
 <p>
   <strong>Bio:</strong>
   <%= @player.bio %>
+</p>
+
+<p>
+  <strong>Played:</strong>
+  <%= @player.total_games %>
+</p>
+
+<p>
+  <strong>MOM:</strong>
+  <%= @player.total_mom %>
+</p>
+
+<p>
+  <strong>Stars:</strong>
+  <%= @player.total_stars %>
+</p>
+
+<p>
+  <strong>Goals:</strong>
+  <%= @player.total_goals %>
+</p>
+
+<p>
+  <strong>Yellow cards:</strong>
+  <%= @player.total_yellow_cards %>
+</p>
+
+<p>
+  <strong>Red cards:</strong>
+  <%= @player.total_red_cards %>
 </p>
 
 <%= link_to 'Edit', edit_player_path(@player), class: "btn btn-warning btn-xs" %> |

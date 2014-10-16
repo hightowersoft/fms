@@ -22,7 +22,7 @@ class Player < ActiveRecord::Base
 			stars += stat.stars
 			games += 1 if stat.stars > 0
 		end
-		return stars.to_s + " in " + games.to_s + " game".pluralize(games)
+		return stars.to_s + " in " + games.to_s
 	end
 
 	def total_goals

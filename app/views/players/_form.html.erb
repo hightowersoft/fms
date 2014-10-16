@@ -18,19 +18,19 @@
     <legend>Add/Edit Player</legend>
     <div class="field">
       <%= f.label :firstname %><br>
-      <%= f.text_field :firstname %>
+      <%= f.text_field :firstname, class: "form-control" %>
     </div>
     <div class="field">
       <%= f.label :surname %><br>
-      <%= f.text_field :surname %>
+      <%= f.text_field :surname, class: "form-control" %>
     </div>
     <div class="field">
       <%= f.label :position %><br>
-      <%= f.select :position, Player::POSITIONS, prompt: 'Select a position' %>
+      <%= f.select :position, Player::POSITIONS, prompt: 'Select a position', class: "form-control" %>
     </div>
     <div class="field">
       <%= f.label :bio %><br>
-      <%= f.text_area :bio %>
+      <%= f.text_area :bio, class: "form-control wysihtml5" %>
     </div>
     <div class="actions">
       <%= f.submit class: "btn btn-success btn-sm" %>

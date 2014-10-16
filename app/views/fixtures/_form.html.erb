@@ -1,49 +1,55 @@
 <%= form_for(@fixture) do |f| %>
   <% if @fixture.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@fixture.errors.count, "error") %> prohibited this fixture from being saved:</h2>
-
-      <ul>
-      <% @fixture.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@fixture.errors.count, "error") %> prohibited this fixture from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @fixture.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :home_team %><br>
-    <%= f.collection_select :home_team, Team.all, :id, :long_name %>
-  </div>
-  <div class="field">
-    <%= f.label :away_team %><br>
-    <%= f.collection_select :away_team, Team.all, :id, :long_name %>
-  </div>
-  <div class="field">
-    <%= f.label :competition %><br>
-    <%= f.number_field :competition %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :played %><br>
-    <%= f.check_box :played %>
-  </div>
-  <div class="field">
-    <%= f.label :home_score %><br>
-    <%= f.number_field :home_score %>
-  </div>
-  <div class="field">
-    <%= f.label :away_score %><br>
-    <%= f.number_field :away_score %>
-  </div>
-  <div class="field">
-    <%= f.label :report %><br>
-    <%= f.text_area :report %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <fieldset>
+    <legend>Add/Edit Player</legend>
+    <div class="field">
+      <%= f.label :home_team %><br>
+      <%= f.collection_select :home_team, Team.all, :id, :long_name, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :away_team %><br>
+      <%= f.collection_select :away_team, Team.all, :id, :long_name, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :competition %><br>
+      <%= f.number_field :competition, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :date %><br>
+      <%= f.date_select :date, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :played %><br>
+      <%= f.check_box :played, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :home_score %><br>
+      <%= f.number_field :home_score, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :away_score %><br>
+      <%= f.number_field :away_score, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :report %><br>
+      <%= f.text_area :report, class: "form-control wysihtml5" %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </fieldset>
 <% end %>

@@ -15,7 +15,6 @@
   <% end %>
 
   <fieldset>
-    <legend>Add/Edit Fixture</legend>
     <div class="field">
       <%= f.label :home_team %><br>
       <%= f.collection_select :home_team, Team.all, :id, :long_name, class: "form-control" %>

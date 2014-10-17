@@ -1,8 +1,4 @@
-<p>
-  <strong>Name:</strong>
-  <%= @competition.name %>
-</p>
-
+<% content_for :title, @competition.name %>
 <p>
   <strong>Is league:</strong>
   <%= @competition.is_league %>

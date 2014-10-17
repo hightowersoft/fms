@@ -69,6 +69,6 @@ class FixturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fixture_params
-      params.require(:fixture).permit(:home_team, :away_team, :competition, :date, :played, :home_score, :away_score, :report)
+      params.require(:fixture).permit(:home_team, :away_team, :competition_id, :date, :played, :home_score, :away_score, :report)
     end
 end

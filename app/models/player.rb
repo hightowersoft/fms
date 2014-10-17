@@ -2,6 +2,8 @@ class Player < ActiveRecord::Base
 	POSITIONS = ["Goalkeeper", "Defender", "Midfielder", "Forward"]
 	has_many :statistics
 
+	validates :firstname, :surname, :position, presence: true
+
 	def format_list_of_games order, fixture, num = nil
 		home = fixture.home.short_name
 		away = fixture.away.short_name

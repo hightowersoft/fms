@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141016140058) do
+ActiveRecord::Schema.define(version: 20141017122558) do
 
   create_table "competitions", force: true do |t|
     t.string   "name"
@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(version: 20141016140058) do
     t.string   "surname",    limit: 30
     t.string   "position"
     t.text     "bio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "static_pages", force: true do |t|
+    t.string   "name"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

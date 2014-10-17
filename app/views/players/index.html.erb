@@ -21,11 +21,11 @@
         <td><%= player.firstname %></td>
         <td><%= player.surname %></td>
         <td><%= player.position %></td>
-        <td class="center"><%= player.total_games %></td>
-        <td class="center"><%= player.total_mom %></td>
-        <td class="center"><%= player.total_stars %></td>
-        <td class="center"><%= player.total_goals %></td>
-        <td class="center"><span class="label label-warning"><%= player.total_yellow_cards %></span> <span class="label label-danger"><%= player.total_red_cards %></span></td>
+        <td class="center"><button type="button" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<%= player.list_of_games %>"><%= player.total_games %></button></td>
+        <td class="center"><button type="button" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<%= player.list_of_mom %>"><%= player.total_mom %></button></td>
+        <td class="center"><button type="button" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<%= player.list_of_stars %>"><%= player.total_stars %></button></td>
+        <td class="center"><button type="button" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<%= player.list_of_goals %>"><%= player.total_goals %></button></td>
+        <td class="center"><button type="button" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<%= player.list_of_yellow_cards %>"><%= player.total_yellow_cards %></button> <button type="button" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<%= player.list_of_red_cards %>"><%= player.total_red_cards %></button></td>
         <td style="text-align: right;"><%= link_to 'Show', player, class: "btn btn-success btn-xs" %>
           <%= link_to 'Edit', edit_player_path(player), class: "btn btn-warning btn-xs" %>
           <%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>

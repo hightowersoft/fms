@@ -24,4 +24,6 @@ $(document).on('page:load ready', function(){
     $(elem).wysihtml5();
   });
 
+  $("[data-toggle='tooltip']").tooltip({html: true}); 
+
 })

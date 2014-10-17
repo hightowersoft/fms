@@ -15,7 +15,7 @@
     <% @static_pages.each do |static_page| %>
       <tr class="<%= cycle('info', 'success') %>">
         <td><%= static_page.name %></td>
-        <td><%= static_page.body %></td>
+        <td><%= truncate(strip_tags(static_page.body), length: 60) %></td>
         <td style="text-align: right;"><%= link_to 'Show', static_page, class: "btn btn-success btn-xs" %>
           <%= link_to 'Edit', edit_static_page_path(static_page), class: "btn btn-warning btn-xs" %>
           <%= link_to 'Destroy', static_page, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>

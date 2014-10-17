@@ -1,12 +1,8 @@
 FootballManagementSystem::Application.routes.draw do
   resources :competitions
-
   resources :fixtures
-
   resources :players
-
   resources :teams
-
   resources :news_items
 
   # The priority is based upon order of creation: first created -> highest priority.

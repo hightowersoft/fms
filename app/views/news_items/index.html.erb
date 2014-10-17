@@ -8,3 +8,7 @@
     <%= link_to 'Destroy', news_item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %>
   </div> 
 <% end %>
+
+<div class="center">
+	<%= will_paginate @news_items, renderer: BootstrapPagination::Rails %>
+</div>

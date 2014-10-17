@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
   # GET /static_pages
   # GET /static_pages.json
   def index
-    @static_pages = StaticPage.all
+    @static_pages = StaticPage.order(:name)
   end
 
   # GET /static_pages/1

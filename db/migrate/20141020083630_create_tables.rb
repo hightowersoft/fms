@@ -1,7 +1,7 @@
 class CreateTables < ActiveRecord::Migration
   def change
     create_table :tables do |t|
-      t.references :team_id, index: true
+      t.references :team, index: true
       t.integer :played
       t.integer :won
       t.integer :drawn

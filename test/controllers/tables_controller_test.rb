@@ -18,7 +18,7 @@ class TablesControllerTest < ActionController::TestCase
 
   test "should create table" do
     assert_difference('Table.count') do
-      post :create, table: { against: @table.against, deducted: @table.deducted, drawn: @table.drawn, for: @table.for, lost: @table.lost, played: @table.played, team_id_id: @table.team_id_id, won: @table.won }
+      post :create, table: { against: @table.against, deducted: @table.deducted, drawn: @table.drawn, for: @table.for, lost: @table.lost, played: @table.played, team_id: @table.team_id, won: @table.won }
     end
 
     assert_redirected_to table_path(assigns(:table))
@@ -35,7 +35,7 @@ class TablesControllerTest < ActionController::TestCase
   end
 
   test "should update table" do
-    patch :update, id: @table, table: { against: @table.against, deducted: @table.deducted, drawn: @table.drawn, for: @table.for, lost: @table.lost, played: @table.played, team_id_id: @table.team_id_id, won: @table.won }
+    patch :update, id: @table, table: { against: @table.against, deducted: @table.deducted, drawn: @table.drawn, for: @table.for, lost: @table.lost, played: @table.played, team_id: @table.team_id, won: @table.won }
     assert_redirected_to table_path(assigns(:table))
   end
 

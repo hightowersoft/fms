@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141020083038) do
+ActiveRecord::Schema.define(version: 20141020083630) do
 
   create_table "competitions", force: true do |t|
     t.string   "name"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20141020083038) do
   end
 
   create_table "tables", force: true do |t|
-    t.integer  "team_id_id"
+    t.integer  "team_id"
     t.integer  "played"
     t.integer  "won"
     t.integer  "drawn"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20141020083038) do
     t.datetime "updated_at"
   end
 
-  add_index "tables", ["team_id_id"], name: "index_tables_on_team_id_id"
+  add_index "tables", ["team_id"], name: "index_tables_on_team_id"
 
   create_table "teams", force: true do |t|
     t.string   "short_name", limit: 15

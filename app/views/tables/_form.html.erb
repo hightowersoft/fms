@@ -1,49 +1,35 @@
-<%= form_for(@table) do |f| %>
-  <% if @table.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@table.errors.count, "error") %> prohibited this table from being saved:</h2>
+<%= form_for :table, url: update_all_tables_path, :html => { method: :put } do %>
 
-      <ul>
-      <% @table.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <table class="table table-striped table-hover">
+  <thead>
+    <tr class="warning">
+      <th>Team</th>
+      <th class="center">P</th>
+      <th class="center">W</th>
+      <th class="center">D</th>
+      <th class="center">L</th>
+      <th class="center">F</th>
+      <th class="center">A</th>
+      <th class="center">Deducted</th>
+    </tr>
+  </thead>
 
-  <div class="field">
-    <%= f.label :team_id %><br>
-    <%= f.text_field :team_id %>
-  </div>
-  <div class="field">
-    <%= f.label :played %><br>
-    <%= f.text_field :played %>
-  </div>
-  <div class="field">
-    <%= f.label :won %><br>
-    <%= f.text_field :won %>
-  </div>
-  <div class="field">
-    <%= f.label :drawn %><br>
-    <%= f.text_field :drawn %>
-  </div>
-  <div class="field">
-    <%= f.label :lost %><br>
-    <%= f.text_field :lost %>
-  </div>
-  <div class="field">
-    <%= f.label :for %><br>
-    <%= f.text_field :for %>
-  </div>
-  <div class="field">
-    <%= f.label :against %><br>
-    <%= f.text_field :against %>
-  </div>
-  <div class="field">
-    <%= f.label :deducted %><br>
-    <%= f.text_field :deducted %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <tbody>
+    <% @tables.each do |table| %>
+      <tr class="<%= cycle('info', 'success') -%>">
+        <%= fields_for "table[]", table do |f| %>
+          <td><%= table.team.long_name %></td>
+          <td><%= f.text_field :played, class: "form-control center" %></td>
+          <td><%= f.text_field :won, class: "form-control center" %></td>
+          <td><%= f.text_field :drawn, class: "form-control center" %></td>
+          <td><%= f.text_field :lost, class: "form-control center" %></td>
+          <td><%= f.text_field :for, class: "form-control center" %></td>
+          <td><%= f.text_field :against, class: "form-control center" %></td>
+          <td><%= f.text_field :deducted, class: "form-control center" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= submit_tag "Save changes", class: "btn btn-sm btn-success" %>
 <% end %>

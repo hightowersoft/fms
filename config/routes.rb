@@ -9,6 +9,9 @@ FootballManagementSystem::Application.routes.draw do
   resources :teams
   resources :news_items
 
+  match 'tables/all/edit' => 'tables#edit_all', as: :edit_all_tables, via: :get
+  match 'tables/all' => 'tables#update_all', as: :update_all_tables, via: :put
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,5 +1,6 @@
 class TablesController < ApplicationController
-  before_action :set_table, only: [:show, :edit, :update, :destroy]
+  include TablesHelper
+  before_action :set_table, only: [:show, :destroy]
 
   # GET /tables
   # GET /tables.json
@@ -14,11 +15,22 @@ class TablesController < ApplicationController
 
   # GET /tables/new
   def new
-    @table = Table.new
+    @tables = Table.all
+    if @tables[0] == nil
+      generate_base_table
+      redirect_to tables_path, notice: 'Table data successfully created!'
+    else
+      redirect_to tables_path, notice: 'Table data already exists!'
+    end
   end
 
   # GET /tables/1/edit
   def edit
+    @tables = Table.all
+  end
+
+  def edit_all
+    @tables = Table.all
   end
 
   # POST /tables
@@ -49,6 +61,14 @@ class TablesController < ApplicationController
         format.json { render json: @table.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def update_all
+    #params["table"].keys.each do |id|
+      #@table = Table.find(id.to_i)
+      #@table.update_attributes(params["table"][id])
+    #end
+    redirect_to root_url, notice: 'Table was successfully updated.'
   end
 
   # DELETE /tables/1

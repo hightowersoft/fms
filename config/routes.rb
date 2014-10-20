@@ -8,6 +8,7 @@ FootballManagementSystem::Application.routes.draw do
 
   match 'tables/all/edit' => 'tables#edit_multiple', as: :edit_all_tables, via: :get
   match 'tables/all' => 'tables#update_multiple', as: :update_all_tables, via: :post
+  match 'tables/all' => 'tables#destroy_multiple', as: :destroy_all_tables, via: :delete
 
   resources :tables
 

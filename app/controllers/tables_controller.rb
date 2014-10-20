@@ -8,11 +8,6 @@ class TablesController < ApplicationController
     @tables = Table.all
   end
 
-  # GET /tables/1
-  # GET /tables/1.json
-  def show
-  end
-
   # GET /tables/new
   def new
     @tables = Table.all
@@ -50,6 +45,15 @@ class TablesController < ApplicationController
       @table.update_attributes(table_params(id))
     end
     redirect_to tables_path, notice: 'Table was successfully updated.'
+  end
+
+  # DELETE /tables/all
+  def destroy_multiple
+    wipe_base_table
+    respond_to do |format|
+      format.html { redirect_to tables_url, notice: 'Table data has been cleared.' }
+      format.json { head :no_content }
+    end
   end
 
   private

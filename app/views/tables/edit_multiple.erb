@@ -1,3 +1,6 @@
 <% content_for :title, "Editing table" %>
 
+<div class="center"><%= link_to 'Wipe all table data', destroy_all_tables_path, method: :delete, data: { confirm: 'This cannot be reversed. Are you sure?' }, class: "btn btn-danger btn-xs" %></div>
+<br />
+
 <%= render 'form' %>

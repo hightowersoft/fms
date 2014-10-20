@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @table.team_id %>
+</p>
+
+<p>
+  <strong>Played:</strong>
+  <%= @table.played %>
+</p>
+
+<p>
+  <strong>Won:</strong>
+  <%= @table.won %>
+</p>
+
+<p>
+  <strong>Drawn:</strong>
+  <%= @table.drawn %>
+</p>
+
+<p>
+  <strong>Lost:</strong>
+  <%= @table.lost %>
+</p>
+
+<p>
+  <strong>For:</strong>
+  <%= @table.for %>
+</p>
+
+<p>
+  <strong>Against:</strong>
+  <%= @table.against %>
+</p>
+
+<p>
+  <strong>Deducted:</strong>
+  <%= @table.deducted %>
+</p>
+
+<%= link_to 'Edit', edit_table_path(@table) %> |
+<%= link_to 'Back', tables_path %>

@@ -34,8 +34,8 @@
         <td><%= table.lost %></td>
         <td><%= table.for %></td>
         <td><%= table.against %></td>
-        <td><%= table.for - table.against %></td>
-        <td><%= (table.won * 3) + table.drawn - table.deducted %></td>
+        <td><%= table.goal_difference %></td>
+        <td><%= table.points %></td>
         <td><%= table.deducted if table.deducted > 0 %></td>
       </tr>
       <% i += 1 %>

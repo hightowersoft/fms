@@ -5,13 +5,12 @@ class TablesController < ApplicationController
   # GET /tables
   # GET /tables.json
   def index
-    @tables = Table.all
+    @tables = get_table_sorted
   end
 
   # GET /tables/new
   def new
-    @tables = Table.all
-    if @tables[0] == nil
+    if Table.first == nil
       generate_base_table
       redirect_to tables_path, notice: 'Table data successfully created!'
     else
@@ -20,7 +19,7 @@ class TablesController < ApplicationController
   end
 
   def edit_multiple
-    @tables = Table.all
+    @tables = get_table_sorted
   end
 
   # POST /tables
@@ -65,5 +64,11 @@ class TablesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def table_params(id)
       params.require(:table).fetch(id).permit(:team_id, :played, :won, :drawn, :lost, :for, :against, :deducted)
+    end
+
+    def get_table_sorted
+      @tables = Table.all
+      @tables = @tables.sort_by { |x| [x.points, x.goal_difference, x.for] }
+      @tables = @tables.reverse
     end
 end

@@ -24,12 +24,7 @@ class TablesController < ApplicationController
     end
   end
 
-  # GET /tables/1/edit
-  def edit
-    @tables = Table.all
-  end
-
-  def edit_all
+  def edit_multiple
     @tables = Table.all
   end
 
@@ -49,36 +44,12 @@ class TablesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tables/1
-  # PATCH/PUT /tables/1.json
-  def update
-    respond_to do |format|
-      if @table.update(table_params)
-        format.html { redirect_to @table, notice: 'Table was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @table.errors, status: :unprocessable_entity }
-      end
+  def update_multiple
+    params["table"].keys.each do |id|
+      @table = Table.find(id.to_i)
+      @table.update_attributes(table_params(id))
     end
-  end
-
-  def update_all
-    #params["table"].keys.each do |id|
-      #@table = Table.find(id.to_i)
-      #@table.update_attributes(params["table"][id])
-    #end
-    redirect_to root_url, notice: 'Table was successfully updated.'
-  end
-
-  # DELETE /tables/1
-  # DELETE /tables/1.json
-  def destroy
-    @table.destroy
-    respond_to do |format|
-      format.html { redirect_to tables_url }
-      format.json { head :no_content }
-    end
+    redirect_to tables_path, notice: 'Table was successfully updated.'
   end
 
   private
@@ -88,7 +59,7 @@ class TablesController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def table_params
-      params.require(:table).permit(:team_id, :played, :won, :drawn, :lost, :for, :against, :deducted)
+    def table_params(id)
+      params.require(:table).fetch(id).permit(:team_id, :played, :won, :drawn, :lost, :for, :against, :deducted)
     end
 end

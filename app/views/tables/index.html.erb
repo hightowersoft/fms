@@ -19,9 +19,6 @@
       <th>GD</th>
       <th>Pts</th>
       <th>Deducted</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -40,9 +37,6 @@
         <td><%= table.for - table.against %></td>
         <td><%= (table.won * 3) + table.drawn - table.deducted %></td>
         <td><%= table.deducted if table.deducted > 0 %></td>
-        <td><%= link_to 'Show', table %></td>
-        <td><%= link_to 'Edit', edit_table_path(table) %></td>
-        <td><%= link_to 'Destroy', table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
       <% i += 1 %>
     <% end %>

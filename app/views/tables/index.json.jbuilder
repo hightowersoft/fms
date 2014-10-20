@@ -1,4 +1,4 @@
 json.array!(@tables) do |table|
+	json.name table.team.long_name
   json.extract! table, :id, :team_id, :played, :won, :drawn, :lost, :for, :against, :deducted
-  json.url table_url(table, format: :json)
 end

@@ -1,4 +1,6 @@
 FootballManagementSystem::Application.routes.draw do
+  resources :contacts
+
   resources :static_pages
   resources :competitions
   resources :fixtures

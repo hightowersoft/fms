@@ -1,0 +1,19 @@
+<h1>FMS Contact Form</h1>
+<p>
+	A contact form was sent from your FMS website with the following details:
+</p>
+<p>
+	<b>Name:</b> <%= @contact.from_name %>
+</p>
+<p>
+	<b>Email:</b> <a href="mailto:<%= @contact.from_email %>" ><%= @contact.from_email %></a>
+</p>
+<p>
+	<b>Message:</b> <%= @contact.message %>
+</p>
+<p>
+	----------
+</p>
+<p>
+	End of message
+</p>

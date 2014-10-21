@@ -15,6 +15,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       if @contact.valid?
         # Send mail now
+        Notifier.contact(@contact).deliver
         format.html { redirect_to @contact, notice: "Your message has been sent." }
         format.json { render action: 'index', status: :created, location: @contact }
       else
